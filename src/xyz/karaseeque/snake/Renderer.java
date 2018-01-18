@@ -2,7 +2,7 @@ package xyz.karaseeque.snake;
 
 public class Renderer {
     public String render (World world) {
-        String result = "";
+        StringBuilder result = new StringBuilder();
         int height = world.getHeight(), width = world.getWidth();
 
         for (int row = 0; row < height; row++) {
@@ -25,12 +25,12 @@ public class Renderer {
                         cell = " ";
                         break;
                 }
-                result += cell;
+                result.append(cell);
             }
 
-            result += "\n";
+            result.append("\n");
         }
 
-        return result;
+        return result.toString();
     }
 }
