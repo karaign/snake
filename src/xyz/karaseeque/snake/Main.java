@@ -13,7 +13,6 @@ public class Main {
         //TODO: add ability to read levels from disk
         //TODO: add option to change speed
         //TODO: store options in a text file
-        //TODO: add visual indication for collisions
         //TODO: add wraparound
 
         System.out.println("Welcome to Snake\n" +
