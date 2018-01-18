@@ -8,12 +8,20 @@ public class Main {
     private static final int DEFAULT_WIDTH = 30;
     private static final int DEFAULT_HEIGHT = 20;
     private static final int DEFAULT_DIFFICULTY = 200;
+    private static final int SCR_HEIGHT = 70;
 
     public static void main(String[] args) throws InterruptedException, IOException {
         //TODO: add ability to read levels from disk
         //TODO: add option to change speed
         //TODO: store options in a text file
         //TODO: add wraparound
+
+        // Initialize screen cleaner
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < SCR_HEIGHT; i++) {
+            builder.append("\n");
+        }
+        String newlines = builder.toString();
 
         System.out.println("Welcome to Snake\n" +
                            "Controls: W/A/S/D or arrow keys to move\n" +
@@ -29,9 +37,7 @@ public class Main {
         // main game loop
         while (world.continueGame()) {
             // clear screen
-            for (int i = 0; i < 50; i++) {
-                System.out.println("");
-            }
+            System.out.print(newlines);
             // render world
             System.out.print(renderer.render(world));
             // print score
