@@ -5,8 +5,8 @@ import xyz.karaseeque.snake.borrowedCode.RawConsoleInput;
 import java.io.IOException;
 
 public class Main {
-    private static final int DEFAULT_WIDTH = 30;
-    private static final int DEFAULT_HEIGHT = 20;
+    private static final int DEFAULT_WIDTH = 15;
+    private static final int DEFAULT_HEIGHT = 15;
     private static final int DEFAULT_DIFFICULTY = 200;
     private static final int SCR_HEIGHT = 70;
 
@@ -68,7 +68,7 @@ public class Main {
         }
 
         System.out.println("\nGame over!\n" +
-                           "Press any key to continue");
+                           "Press any key to exit");
         RawConsoleInput.read(true); // wait for key press
     }
 }
