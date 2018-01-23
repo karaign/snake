@@ -14,7 +14,6 @@ public class Main {
         //TODO: add ability to read levels from disk
         //TODO: add option to change speed
         //TODO: store options in a text file
-        //TODO: add wraparound
 
         // Initialize screen cleaner
         StringBuilder builder = new StringBuilder();
@@ -29,6 +28,8 @@ public class Main {
                            "Press any key to continue\n");
 
         RawConsoleInput.read(true); // wait for key press
+
+        // main menu
 
         // initialize world
         World world = new World(DEFAULT_HEIGHT, DEFAULT_WIDTH);
