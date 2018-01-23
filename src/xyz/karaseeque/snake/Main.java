@@ -9,8 +9,6 @@ public class Main {
 
     public static void main(String[] args) throws InterruptedException, IOException {
         //TODO: add ability to read levels from disk
-        //TODO: add option to change speed
-        //TODO: store options in a text file
 
         // Initialize screen cleaner
         StringBuilder builder = new StringBuilder();
@@ -31,6 +29,7 @@ public class Main {
         int mainMenuInput = RawConsoleInput.read(true); // wait for key press
 
         if (mainMenuInput == 32) { // spacebar
+            //TODO: add menu to view and edit settings
             System.out.println("Settings coming soon");
         }
 
