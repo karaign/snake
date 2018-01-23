@@ -51,13 +51,13 @@ public class Main {
             // check input and forward it to World
             if (input == 3) { // Ctrl+C to exit
                 break;
-            } else if (input == 119) { // W to move up
+            } else if (input == 119 || input == 57416) { // W or up-arrow to move up
                 world.setDirection(Direction.UP);
-            } else if (input == 115) { // S to move down
+            } else if (input == 115 || input == 57424) { // S or down-arrow to move down
                 world.setDirection(Direction.DOWN);
-            } else if (input == 97) { // A to move left
+            } else if (input == 97 || input == 57419) { // A or left-arrow to move left
                 world.setDirection(Direction.LEFT);
-            } else if (input == 100) { // D to move right
+            } else if (input == 100 || input == 57421) { // D or right-arrow to move right
                 world.setDirection(Direction.RIGHT);
             }
 

@@ -54,12 +54,8 @@ public class Snake {
         }
     }
 
-    public Vector getDirection () {
-        return direction;
-    }
-
     /**
-     * @return
+     * @return a list of coordinates of all of the snake's segments
      */
     public LinkedList<Vector> getSegments () {
         return segments;
@@ -71,14 +67,14 @@ public class Snake {
     public void grow () {
         Vector last = segments.getLast();
         Vector nextToLast = segments.get(segments.size() - 2);
-        segments.addLast(last.add(-nextToLast.x, -nextToLast.y));
+        segments.addLast(last.add(-nextToLast.x, -nextToLast.y, lvlWidth, lvlHeight));
     }
 
     /**
      * Moves the snake in the specified direction.
      */
     public void move () {
-        segments.addFirst(segments.getFirst().add(direction));
+        segments.addFirst(segments.getFirst().add(direction, lvlWidth, lvlHeight));
         segments.removeLast();
     }
 }
