@@ -53,7 +53,7 @@ public class Settings {
     public static void save (Settings config) throws IOException {
         FileWriter fw = new FileWriter(FILENAME);
         PrintWriter output = new PrintWriter(fw);
-        output.print(config.useEmptyLevel ? "1" : "0" + ";");
+        output.print((config.useEmptyLevel ? "1" : "0") + ";");
         output.print(config.emptyLevelWidth + ";");
         output.print(config.emptyLevelHeight + ";");
         output.print(config.levelName + ";");
