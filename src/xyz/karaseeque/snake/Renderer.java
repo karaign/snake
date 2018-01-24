@@ -1,6 +1,11 @@
 package xyz.karaseeque.snake;
 
 public class Renderer {
+    /**
+     * Draws the world using pseudographics.
+     * @param world - the world to draw
+     * @return A pseudographical representation of the world in its current state.
+     */
     public String render (World world) {
         StringBuilder result = new StringBuilder();
         int height = world.getHeight(), width = world.getWidth();

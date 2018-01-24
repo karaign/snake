@@ -3,12 +3,14 @@ package xyz.karaseeque.snake;
 import xyz.karaseeque.snake.borrowedCode.RawConsoleInput;
 
 import java.io.IOException;
+import java.util.Scanner;
 
 public class Main {
     private static final int SCR_HEIGHT = 70;
 
     public static void main(String[] args) throws InterruptedException, IOException {
-        //TODO: add ability to read levels from disk
+        // Initialize scanner
+        Scanner sc = new Scanner(System.in);
 
         // Initialize screen cleaner
         StringBuilder builder = new StringBuilder();
@@ -28,9 +30,39 @@ public class Main {
 
         int mainMenuInput = RawConsoleInput.read(true); // wait for key press
 
+        // settings menu
         if (mainMenuInput == 32) { // spacebar
-            //TODO: add menu to view and edit settings
-            System.out.println("Settings coming soon");
+            // Set whether an empty level will be used, or a level loaded from the disk
+            System.out.println("Should an empty level be used? (y/n) \n" +
+                               "Current setting: " + settings.useEmptyLevel);
+            String next;
+            do {
+                next = sc.next();
+            } while (!next.equals("y") && !next.equals("n"));
+            settings.useEmptyLevel = next.equals("y");
+
+            // If an empty level is selected, we can set the width and height
+            if (settings.useEmptyLevel) {
+                System.out.println("Enter the width of the level\n" +
+                                   "Current setting: " + settings.emptyLevelWidth);
+                settings.emptyLevelWidth = sc.nextInt();
+                System.out.println("Enter the height of the level\n" +
+                        "Current setting: " + settings.emptyLevelHeight);
+                settings.emptyLevelHeight = sc.nextInt();
+
+            } else { // If we load a level from disk, we need to know its filename
+                //TODO: add ability to read levels from disk
+                System.out.println("Other levels coming soon!");
+            }
+
+            // Finally, configure the difficulty of the game
+            System.out.println("Enter how fast the game will move, in milliseconds\n" +
+                               "The smaller the number, the harder the game!\n" +
+                               "Current setting: " + settings.frameTime);
+            settings.frameTime = sc.nextInt();
+
+            // Save the settings
+            Settings.save(settings);
         }
 
         // initialize world
@@ -47,7 +79,7 @@ public class Main {
             System.out.print("SCORE: " + world.getScore());
 
             // wait some time to receive input
-            Thread.sleep(settings.speed);
+            Thread.sleep(settings.frameTime);
             // read input
             int input = RawConsoleInput.read(false);
             // check input and forward it to World
