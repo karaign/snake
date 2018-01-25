@@ -32,6 +32,7 @@ public class Main {
 
         // settings menu
         if (mainMenuInput == 32) { // spacebar
+            RawConsoleInput.resetConsoleMode();
             // Set whether an empty level will be used, or a level loaded from the disk
             System.out.println("Should an empty level be used? (y/n) \n" +
                                "Current setting: " + settings.useEmptyLevel);
