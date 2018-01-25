@@ -15,7 +15,7 @@ Open a terminal in this folder and type:
 
 Open a CMD or a PowerShell console in this folder and type:
 `java -jar .\out\artifacts\snake_jar\snake.jar`
-or simply double-click `LAUNCH.bat.
+or simply double-click `LAUNCH.bat`.
 
 ## Gameplay
 
