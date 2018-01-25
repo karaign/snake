@@ -102,7 +102,7 @@ public class World {
         // initialize walls
         walls = m;
         // initialize snake
-        snake = new Snake(3, getHeight() / 2, getWidth() / 2, getHeight(), getWidth());
+        snake = new Snake(3, getWidth() / 2, getHeight() / 2, getHeight(), getWidth());
         placeFood();
     }
 

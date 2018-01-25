@@ -51,8 +51,9 @@ public class Main {
                 settings.emptyLevelHeight = sc.nextInt();
 
             } else { // If we load a level from disk, we need to know its filename
-                //TODO: add ability to read levels from disk
-                System.out.println("Other levels coming soon!");
+                System.out.println("Enter level name. Go to the 'levels' folder to see available levels!\n" +
+                                   "Current setting: " + settings.levelName);
+                settings.levelName = sc.next();
             }
 
             // Finally, configure the difficulty of the game
@@ -66,7 +67,14 @@ public class Main {
         }
 
         // initialize world
-        World world = new World(settings.emptyLevelHeight, settings.emptyLevelWidth);
+        World world;
+        if (settings.useEmptyLevel) {
+            world = new World(settings.emptyLevelHeight, settings.emptyLevelWidth);
+        } else {
+            boolean[][] level = LevelReader.readLevel(settings.levelName);
+            world = new World(level);
+        }
+        // initialize renderer
         Renderer renderer = new Renderer();
 
         // main game loop

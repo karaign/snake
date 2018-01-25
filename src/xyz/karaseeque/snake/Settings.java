@@ -80,7 +80,7 @@ public class Settings {
      * The name of the loaded level to use.
      * Levels should be stored in ./levels
      */
-    public String levelName = "walled_garden.txt";
+    public String levelName = "walled_garden";
     /**
      * The game's difficulty level/speed, which is defined by
      * the waiting time between frames in milliseconds.
